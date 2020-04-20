@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>aevents & Methods.8</title>
+</head>
+<body>
+<div id="root">
+	<h1>Sills</h1> <hr>
+		<ul>
+			<!-- v-for used for loop -->
+			<li v-for="(skill, i) in skills" v-if="skill.experience <= 2">
+				<p>{{i+1}}. {{skill.name}} ({{skill.experience}})</p>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#root',
+			data: {
+				skills: [
+					{name: "HTML", experience: 5 },
+					{name: "CSS", experience: 2 },
+					{name: "JS", experience: 1 },
+					{name: "php", experience: 4 },
+					{name: "nodejs", experience: 6 }
+					]
+			}
+		});
+	</script>
+</body>
+</html>

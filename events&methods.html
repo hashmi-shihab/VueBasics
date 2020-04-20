@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>events & Methods.8</title>
+</head>
+<body>
+<div id="root">
+	<h1>Sills</h1> <hr>
+		<ul>
+			<!-- v-for used for loop -->
+			<li v-for="(skill, i) in skills">
+				<p>
+					{{i+1}}. {{skill}} <button @click="removeSkill(i)">X</button>
+				</p>
+			</li>
+		</ul>
+		<br>
+		<input type="text" v-model="newSkill">
+		<button v-on:click="addNewSkills()">Add Another</button>
+	</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#root',
+			data: {
+				skills: ["HTML","CSS","JS"],
+				newSkill: ""
+			},
+			methods:{
+				addNewSkills: function(){
+					this.skills.push(this.newSkill);
+					this.newSkill = "";
+				},
+				removeSkill: function(i){
+					this.skills.splice(i, 1);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

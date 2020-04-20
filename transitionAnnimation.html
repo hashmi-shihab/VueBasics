@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transition Annimation.11</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.foo{
+			background: #E0BABA;
+			text-align: center;
+			width: 960px;
+			margin: 44px auto;
+			min-height: 222px; 
+		}
+		.bar-enter-active, .bar-leave-active{
+			transition: margin-left 1s;
+		}
+		.bar-enter, .bar-leave-to{
+			margin-left: -222px;
+		}
+	</style>
+</head>
+<body>
+<div id="root">
+	<h1>Sills</h1> <hr>
+	<br>
+		<input type="text" v-model="newSkill">
+		<button v-on:click="addNewSkills()">Add Another</button>
+		<ul>
+			<!-- v-for used for loop -->
+			<transition-group name="bar">
+				<li v-for="(skill, i) in skills" :key="i">
+				<p>
+					{{i+1}}. {{skill}} <button @click="removeSkill(i)">X</button>
+				</p>
+			</li>
+			</transition-group>
+		</ul>	
+</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#root',
+			data: {
+				skills: ["HTML","CSS","JS"],
+				newSkill: ""
+			},
+			methods:{
+				addNewSkills: function(){
+					this.skills.push(this.newSkill);
+					this.newSkill = "";
+				},
+				removeSkill: function(i){
+					this.skills.splice(i, 1);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
+

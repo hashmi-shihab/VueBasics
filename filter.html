@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter.10</title>
+</head>
+<body>
+<div id="root">
+	<!-- by | (pipe) symble we use filter -->
+	<h1>{{name | upper}}</h1> <hr>
+	<h1>{{profession | lower}}</h1> <hr>
+	<h1>{{toDay | bdFormat}}</h1> <hr>
+	</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+	/*global filter*/
+	Vue.filter("lower", function(s){
+		return s.toLowerCase();
+	});
+
+		var app = new Vue({
+			el: '#root',
+			data: {
+				name: "Md. Hashmi Shihab" ,
+				profession: "Software Engineer",
+				toDay: new Date()
+			},
+			filters:{
+				upper: function(s){
+					return s.toUpperCase();
+				},
+				bdFormat: function(d){
+					return d.getUTCDate() + "-" + (d.getUTCMonth()+1) + "-" + d.getUTCFullYear();
+				}
+			}
+		});
+	</script>
+</body>
+</html>

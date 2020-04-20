@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrtibute & Class Binding.5</title>
+	<style type="text/css">
+		ul{
+			list-style: none;
+		}
+		li{
+			display: inline;
+		}
+		.active{
+			background: #087B;
+			color: white;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+<div id="root">
+		<ul>
+			<li>
+				<!-- for binding attribute we use v-bind:attributeName or :attributeName -->
+				<!-- for simple class bindind -->
+				<a v-bind:class="className" v-bind:href="link1.url" v-bind:title="link1.title">{{link1.text}}</a>
+			</li>
+			<li>
+				<!-- for condition class binding -->
+				<a :class="{'active': activeLink == 'link2'}" :href="link2.url" :title="link2.title">{{link2.text}}</a>
+			</li>
+		</ul>
+
+		<br>
+		<!-- for showing a html code in to a link -->
+		<p v-html="html"></p>
+	</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#root',
+			data: {
+				link1:{
+					text: "Facebook", title: "Go to Facebook", url: "http://facebook.com"	
+				},
+				link2:{
+					text: "YouTube", title: "Go to YouTube", url: "http://youtube.com"	
+				},
+				className: "active",
+				activeLink: "link2",
+				html: '<a href="http://github.com">GitHub</a>'
+			},
+		});
+	</script>
+</body>
+</html>

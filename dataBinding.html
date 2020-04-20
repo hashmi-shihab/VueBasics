@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TwoWay DataBinding.4</title>
+</head>
+<body>
+
+	<div id="root">
+		<p>Enter Your Name</p>
+		<!-- for javaScript -->
+		<!-- <input type="text" id="name" onkeyup="change()">  
+		<h1 id="ouput"> Your name is</h1>
+		-->
+		<!-- for vue -->
+		<input type="text" v-model="name"> 
+		<br>
+		<h1 id="ouput"> Your name is {{name}}</h1>
+	</div>
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		/*for vue*/
+		var app = new Vue({
+			el: '#root',
+			data: {
+				name: "Hashmi"
+			},
+			mounted: function(){
+				console.log("mounted");
+			}
+		});
+
+
+		/*for javascript (limitation:cant change value through console,we can say that its not two way data binding, thats why vue)*/
+		/*var data = {name: "Hashmi"} ;
+		document.getElementById("name").value = data.name ;
+		document.getElementById("ouput").innerHTML = "Your name is " + data.name ;
+
+		function change(){
+			data.name = document.getElementById("name").value;
+			document.getElementById("ouput").innerHTML = "Your name is " + data.name ;
+		}*/
+	</script>
+
+</body>
+</html>
